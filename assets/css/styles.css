@@ -1,0 +1,85 @@
+/* Djiboutian American Community Empowerment Project — site styles
+   Warm terracotta on cream, soft filled tiles rather than outlined cards,
+   generous type. Its own visual language, unrelated to the other sites. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap');
+
+:root {
+  --clay-900: #5b2b1d;
+  --clay-700: #8a4128;
+  --clay-500: #c2603a;
+  --sand-200: #f2e3d5;
+  --sand-100: #faf3ec;
+  --ink: #2a201b;
+  --muted: #6d5c53;
+  --white: #fff;
+  --max: 1080px;
+  --display: "Fraunces", Georgia, serif;
+  --body: "Karla", system-ui, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--body); color: var(--ink); background: var(--white); line-height: 1.75; font-size: 17px; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--display); color: var(--clay-900); line-height: 1.2; font-weight: 700; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.1rem, 5.2vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
+h3 { font-size: 1.16rem; }
+p { margin: 0 0 1em; }
+a { color: var(--clay-500); }
+img { max-width: 100%; display: block; }
+
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.section { padding: 78px 0; }
+.bg-sand { background: var(--sand-100); }
+.bg-clay { background: var(--clay-900); color: #edd9cb; }
+.bg-clay h2, .bg-clay h3 { color: #fff; }
+.center { text-align: center; }
+.lead { font-size: 1.16rem; color: var(--muted); max-width: 62ch; }
+.center .lead { margin-left: auto; margin-right: auto; }
+
+.site-header { background: var(--white); border-bottom: 1px solid var(--sand-200); position: sticky; top: 0; z-index: 20; }
+.nav { max-width: var(--max); margin: 0 auto; padding: 15px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--clay-900); text-decoration: none; }
+.brand__mark { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--clay-500); color: #fff; font-family: var(--display); font-weight: 700; display: grid; place-items: center; font-size: 1rem; }
+.brand__name { font-family: var(--display); font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.brand__name span { display: block; font-family: var(--body); font-weight: 400; font-size: .78rem; color: var(--muted); }
+.nav__links { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; }
+.nav__links a { color: var(--ink); font-weight: 600; font-size: .95rem; text-decoration: none; }
+.nav__links a:hover { color: var(--clay-500); }
+.nav__toggle { display: none; background: none; border: 1px solid var(--sand-200); border-radius: 8px; font-size: 1.3rem; padding: 2px 10px; cursor: pointer; }
+
+.hero { background: var(--sand-100); padding: 100px 0 108px; }
+.hero h1 { max-width: 20ch; margin-left: auto; margin-right: auto; }
+.btn { display: inline-block; padding: 13px 28px; border-radius: 4px; font-weight: 700; text-decoration: none; font-size: .96rem; background: var(--clay-500); color: #fff; margin-top: 24px; }
+.btn:hover { background: var(--clay-700); }
+
+/* Soft filled tiles — no borders, no shadows */
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.tile { background: var(--sand-100); border-radius: 20px; padding: 30px 32px; }
+.tile h3 { margin-bottom: .3em; }
+.tile p:last-child { margin-bottom: 0; }
+.tile__kicker { font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; color: var(--clay-500); font-weight: 700; margin: 0 0 .8em; }
+
+.notes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.note { border-left: 3px solid var(--clay-500); padding-left: 20px; }
+.note h3 { font-size: 1.02rem; margin-bottom: .3em; }
+.note p { margin-bottom: 0; color: var(--muted); font-size: .97rem; }
+
+.site-footer { background: var(--clay-900); color: #d9bda9; padding: 48px 0 32px; font-size: .93rem; }
+.site-footer a { color: #f0d9c9; }
+.footer__top { display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+.footer__name { font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: #fff; margin: 0; }
+.footer__links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer__links a { font-size: .9rem; }
+.site-footer hr { border: 0; border-top: 1px solid #7a4330; margin: 28px 0; }
+.footer__legal { text-align: center; font-size: .86rem; color: #bb9a87; }
+.footer__legal p { margin: 0 0 .5em; }
+
+@media (max-width: 800px) {
+  .tiles, .notes { grid-template-columns: 1fr; }
+  .nav__toggle { display: block; }
+  .nav__links { display: none; width: 100%; flex-direction: column; gap: 12px; padding: 12px 0 4px; }
+  .nav__links.is-open { display: flex; }
+  .nav { flex-wrap: wrap; }
+}
